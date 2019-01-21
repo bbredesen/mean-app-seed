@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material';
 import { Subscription } from 'rxjs';
 
 
-import * as model from 'berp-model';
+import * as model from 'seed-model';
 
 @Component({
   selector: 'app-user-list',

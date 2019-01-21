@@ -1,6 +1,6 @@
 {
   "name": "berp-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "berp-model": "file:../model/",
     "@angular/animations": "~7.2.0",
     "@angular/cdk": "^7.2.1",
     "@angular/common": "~7.2.0",

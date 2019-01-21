@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
 
-import * as model from 'berp-model';
+import * as model from 'seed-model';
 
 import { AuthModule } from './auth.module';
 import { JwtHelperService } from '@auth0/angular-jwt';

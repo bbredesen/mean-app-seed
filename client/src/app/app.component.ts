@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
-import * as model from 'berp-model';
+import * as model from 'seed-model';
 
 const debug = require('debug')('client:app');
 

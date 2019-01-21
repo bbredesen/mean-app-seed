@@ -3,7 +3,7 @@ import { bearerAuthCheck } from '../../../passport';
 
 import { Router, Request, Response } from 'express';
 import { User, UserDoc } from '../../../orm/admin/User';
-import model from 'berp-model';
+import model from 'seed-model';
 
 export const router = Router();
 

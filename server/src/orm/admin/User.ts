@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import model from 'berp-model';
+import model from 'seed-model';
 
 export interface UserDoc extends model.admin.User, mongoose.Document { }
 

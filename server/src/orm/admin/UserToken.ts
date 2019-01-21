@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-import model from 'berp-model';
+import model from 'seed-model';
 import { UserDoc } from './User';
 
 export interface UserTokenDoc extends model.admin.UserToken, mongoose.Document {

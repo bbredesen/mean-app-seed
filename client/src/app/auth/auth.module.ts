@@ -16,7 +16,7 @@ import { AuthGuard } from './auth-guard.service';
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: (new AuthService(null, null)).getAuthToken,
+        tokenGetter: (new AuthService(null, null, null)).getAuthToken,
         whitelistedDomains: [ 'localhost' ], // Only really needed for non-origin domains
         blacklistedRoutes: [ ]
       }

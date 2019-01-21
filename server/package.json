@@ -1,5 +1,5 @@
 {
-  "name": "berp-server",
+  "name": "seed-server",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "berp-model": "file:../model",
+    "seed-model": "file:../model",
     "connect-mongo": "^2.0.3",
     "debug": "^4.1.1",
     "dotenv": "^6.2.0",

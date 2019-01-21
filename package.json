@@ -2,20 +2,15 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.10.5",
     "typescript": "^3.2.4"
   },
-  "dependencies": {
-    "berp-client": "file:packages/client",
-    "berp-model": "file:packages/model",
-    "berp-server": "file:packages/server"
-  },
+  "dependencies": {},
   "scripts": {
-    "build-model": "tsc -p packages/model/tsconfig.json",
-    "build-client": "cd packages/client/ && ng build",
-    "build-server": "tsc -p packages/server/tsconfig.json",
-    "monitor": "nodemon packages/server/dist/server.js",
-
+    "build-model": "tsc -p model/tsconfig.json",
+    "build-client": "cd client/ && npx ng build",
+    "build-server": "tsc -p server/tsconfig.json",
+    "watch": "nodemon server/dist/server.js",
+    "postinstall": "cd model/ && npm i && cd ../client/ && npm i && cd ../server/ && npm i",
     "build": "npm run build-model && npm run build-client && npm run build-server",
     "start": "node packages/server/dist/server.js"
   }

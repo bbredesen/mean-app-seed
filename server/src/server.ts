@@ -7,10 +7,21 @@ import log from './logging';
 // Establishes a connection to a MongoDB instance.
 import connection from './db_connection';
 
-// Sets up paths for authentication and configures Google OAuth through passport.
-// Comment out/remove if you don't want to authenticate users.
-// import './passport';
+// Create a default user, if they don't exist yet.
+import * as model from 'seed-model';
+import { User, UserDoc } from './orm/admin/User';
 
+let user : model.admin.User = model.admin.initDefaultUser();
+user.email = 'example@example.com'; // Put your Google email address here
+
+User.findOne({ email : user.email }).lean().exec()
+  .then( (result : UserDoc ) => {
+    if (!result) {
+      User.create(user).then( () => log.info(`Created an initial user record for ${user.email}`));
+    }
+  });
+
+// Sets up paths for authentication and configures Google OAuth through passport.
 import http from 'http';
 import path from 'path';
 import bodyParser from 'body-parser';
@@ -18,7 +29,7 @@ import bodyParser from 'body-parser';
 const app : express.Express = express();
 
 // Helmet sets some HTTP headers to improve security
-import helmet from 'helmet';
+import * as helmet from 'helmet';
 app.use(helmet());
 
 /*
@@ -43,20 +54,6 @@ app.use(bodyParser.json());
 
 import passport from 'passport';
 app.use(passport.initialize());
-
-// Create a default user, if they don't exist yet.
-import * as model from 'berp-model';
-import { User, UserDoc } from './orm/admin/User';
-
-let user : model.admin.User = model.admin.initDefaultUser();
-user.email = 'ben.bredesen@gmail.com'; // Put your Google email address here
-
-User.findOne({ email : user.email }).lean().exec()
-  .then( (result : UserDoc ) => {
-    if (!result) {
-      User.create(user).then( () => log.info(`Created an initial user record for ${user.email}`));
-    }
-  });
 
 // A few demo paths
 app.get('/hello', (req : Request, res : Response) => res.send('<h1>Hello.</h1><p>This demonstration response is sent directly from Express, <b>not</b> through Angular.</p>') )

@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
-import * as model from 'berp-model';
+import * as model from 'seed-model';
 
 import { tap, flatMap } from 'rxjs/operators';
 
