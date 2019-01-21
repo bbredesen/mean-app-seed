@@ -1,0 +1,22 @@
+<div style="">
+  <mat-toolbar color="primary">
+    <span><mat-icon>mood</mat-icon></span>
+
+    <span style="cursor: pointer;" (click)="router.navigateByUrl('/')">{{title}}</span>
+
+    <span>
+      <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="currentUser">
+        <img [src]="currentUser.profilePhotoURL" style="max-height: 100%; border-radius: 50%"/>
+      </button>
+    </span>
+  </mat-toolbar>
+
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item (click)="router.navigateByUrl('/')">Dashboard</button>
+    <button *ngIf="currentUser" mat-menu-item (click)="router.navigateByUrl('/admin/user')">GUARDED - User Management</button>
+    <button *ngIf="currentUser" mat-menu-item (click)="auth.logout()">GUARDED - Log Out</button>
+  </mat-menu>
+</div>

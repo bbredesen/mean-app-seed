@@ -1,0 +1,35 @@
+<div style="height: 100%;">
+<mat-sidenav-container autosize>
+   <!--  -->
+  <mat-sidenav [mode]="mediaIsXs ? 'over' : 'side'"
+    opened [fixedInViewport]="true" [fixedTopGap]="mediaIsXs ? 56 : 64"
+    class="mat-elevation-z2">
+    <h3>Users</h3>
+
+    <mat-nav-list>
+      <div mat-list-item *ngFor="let user of users" (click)="selectRecord(user)" href="#"
+        [class]="(selectedRecord === user ? 'selected' : '')">
+        <h4 style="margin: 0;">{{user.givenName}} {{user.surname}}</h4>
+        <p style="font-size: 0.8em; color: #333;">{{user.email}}</p>
+      </div>
+      <mat-list-item *ngIf="!users || users.length == 0">No records or not logged in.</mat-list-item>
+    </mat-nav-list>
+
+    <!-- <p *ngFor="let user of users" (click)="selectRecord(user)"
+      [class]="(selectedRecord === user ? 'selected' : '')"
+    >
+      {{user.given_name}} {{user.surname}}<br/>{{user.email}}
+    </p>
+    <p *ngIf="!users || users.length == 0">No records or not logged in.</p> -->
+
+    <button mat-fab type="button" (click)="newRecord()" aria-label="Add a new user">
+      <mat-icon>add circle</mat-icon>
+    </button>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-user-form [rec]="selectedRecord" (formComplete)="onFormComplete($event)"></app-user-form>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

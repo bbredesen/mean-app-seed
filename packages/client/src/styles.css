@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+mat-card {
+  max-width: 90%;
+  margin: 2em;
+}
+
+/* mat-card.form-container {
+
+} */
+mat-toolbar {
+  justify-content: space-between;
+  /* position: fixed; */
+  top: 0;
+  /* height: 60px; */
+}
+
+button[mat-fab] {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* color: white;   */
+}
+
+mat-sidenav-container {
+}
+mat-sidenav {
+  padding: 1em;
+}

@@ -1,0 +1,25 @@
+<mat-card>
+  <!-- <h1>Dashboard</h1> -->
+  <h2>Welcome to the seed application!</h2>
+
+  <div *ngIf="auth.haveAuthToken()">
+    <p>You are logged in. The response from /api/admin/user/me is:</p>
+    <pre>{{me | json}}</pre>
+
+    <!-- <p>Your current auth token is:<pre>{{auth.getAuthToken()}}</pre> -->
+    <p>Your JWT authorization can be used to call the API directly, as a bearer token.</p>
+    <button mat-button color="accent" ngxClipboard [cbContent]="auth.getAuthToken()" type="button">
+      <mat-icon>file_copy</mat-icon> Copy JWT to Clipboard
+    </button>
+
+    <p>You can <a (click)="logout()" href="#">log out</a>, if you want.
+  </div>
+
+  <div *ngIf="!auth.haveAuthToken()">
+    <p>You are not logged in.</p>
+    <a mat-button href="/login" style="padding: 0;">
+      <img src="assets/images/btn_google_signin_dark_normal_web.png" />
+    </a>
+  </div>
+
+</mat-card>

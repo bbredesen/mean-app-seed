@@ -1,0 +1,54 @@
+<!-- <mat-card> -->
+<mat-card *ngIf="!rec">
+  <p>Select a user to update on the left.</p>
+</mat-card>
+
+  <mat-card *ngIf="rec">
+    <mat-card-title *ngIf="rec._id">Update a User</mat-card-title>
+    <mat-card-title *ngIf="!rec._id">Create a New User</mat-card-title>
+
+    <form #frm="ngForm" (ngSubmit)="submitForm()">
+      <div mat-card style="display: flex; flex-direction: column;" >
+
+        <mat-form-field>
+          <input matInput placeholder="First Name"
+            required
+            name="given_name" [(ngModel)]="rec.givenName" #given_name="ngModel"
+            />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Last Name"
+            required
+            name="surname" [(ngModel)]="rec.surname" #surname="ngModel"
+            />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="User's Email Address"
+            required
+            name="email" [(ngModel)]="rec.email" #email="ngModel"
+            />
+        </mat-form-field>
+      </div>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" aria-label="Submit"
+        [disabled]="!frm.valid"
+        >
+        <mat-icon>check</mat-icon> SUBMIT
+      </button>
+      <button mat-raised-button type="button" aria-label="Cancel"
+        (click)="cancelForm()">
+        <mat-icon>cancel</mat-icon> CANCEL
+      </button>
+
+      <button mat-raised-button color="warn" type="button" aria-label="Delete User" style="float: right;"
+        (click)="confirmDeleteUser(rec)">
+        <mat-icon>delete</mat-icon> DELETE USER
+      </button>
+
+    </mat-card-actions>
+
+  </form>
+  </mat-card>
