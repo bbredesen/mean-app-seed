@@ -21,7 +21,7 @@ const config = {
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 
     jwtIssuer: "berp",
-    jwtSecret: process.env.JWT_SIGNATURE_SECRET,
+    jwtSecret: process.env.JWT_SIGNATURE_SECRET || 'replace this in .env',
 
     // Paths used by Express; arbitrary, you can redefine here as desired
     loginPath : "/login",
@@ -39,7 +39,7 @@ const config = {
   },
 
   session : {
-    secret : process.env.SESSION_SECRET_SALT,
+    secret : process.env.SESSION_SECRET_SALT || 'really, replace this in .env',
     // Maximum age in milliseconds of a login session, before requiring the user to log in again
     maxAge : 24*60*60*1000 // 24 hours
   }
