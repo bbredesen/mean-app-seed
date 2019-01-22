@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "mean-app-seed",
   "private": true,
   "devDependencies": {
     "typescript": "^3.2.4"
