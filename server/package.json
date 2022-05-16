@@ -6,7 +6,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "seed-model": "file:../model",
     "connect-mongo": "^2.0.3",
     "debug": "^4.1.1",
